@@ -4,10 +4,26 @@ import Items from "./views/items";
 
 function App() {
   const [list, setList] = useState([]);
+  const [text, setText] = useState("");
+
+  const itemProps = {
+    list,
+    setList
+  };
+
+  const headerProps = {
+    text,
+    onChange: event => setText(event.target.value),
+    onAdd: () => {
+      setList(list.concat([{ item: text }]));
+      setText("");
+    }
+  };
+
   return (
     <div className="App">
-      <Header />
-      <Items list={[{ item: "something" }]} />
+      <Header {...headerProps} />
+      <Items {...itemProps} />
     </div>
   );
 }

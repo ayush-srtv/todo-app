@@ -1,2 +1,3 @@
-# todo-app
-Created with CodeSandbox
+# TODO App
+
+A Simple todo application using React Hooks

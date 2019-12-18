@@ -15,7 +15,7 @@ function App() {
     text,
     onChange: event => setText(event.target.value),
     onAdd: () => {
-      setList(list.concat([{ item: text }]));
+      setList([...list, { item: text }]);
       setText("");
     }
   };

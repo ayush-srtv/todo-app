@@ -8,8 +8,8 @@ function Items({ list = [], setList }) {
 
   return (
     <List>
-      {list.map(list => (
-        <ListItem {...list} onDelete={handleDelete(list.item)} />
+      {list.map((list, index) => (
+        <ListItem key={index} {...list} onDelete={handleDelete(list.item)} />
       ))}
     </List>
   );

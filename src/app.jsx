@@ -15,6 +15,9 @@ function App() {
     text,
     onChange: event => setText(event.target.value),
     onAdd: () => {
+      if (!!list.find(li => li.item === text)) {
+        return;
+      }
       setList([...list, { item: text }]);
       setText("");
     }

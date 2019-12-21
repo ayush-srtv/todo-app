@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./views/header";
 import Items from "./views/items";
+import { validate } from "./utils/validations";
 
 function App() {
   const [list, setList] = useState([]);
@@ -15,7 +16,7 @@ function App() {
     text,
     onChange: event => setText(event.target.value),
     onAdd: () => {
-      if (!!list.find(li => li.item === text)) {
+      if (!validate(list, text)) {
         return;
       }
       setList([...list, { item: text }]);

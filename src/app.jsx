@@ -19,7 +19,7 @@ function App() {
       if (!validate(list, text)) {
         return;
       }
-      setList([...list, { item: text }]);
+      setList([...list, { item: text, done: false }]);
       setText("");
     }
   };

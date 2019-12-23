@@ -9,6 +9,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 function ListItem({ item, done, onDelete, onDone, ...props }) {
   const labelId = `checkbox-list-label-${item}`;
+  const li = done ? <strike>{item}</strike> : <span>{item}</span>;
   return (
     <MUIListItem {...{ ...props, onClick: onDone }}>
       <ListItemIcon>
@@ -20,7 +21,7 @@ function ListItem({ item, done, onDelete, onDone, ...props }) {
           inputProps={{ "aria-labelledby": labelId }}
         />
       </ListItemIcon>
-      <ListItemText primary={item} />
+      <ListItemText primary={li} />
       <ListItemSecondaryAction>
         <IconButton onClick={onDelete} edge="end" aria-label="delete">
           <DeleteIcon />

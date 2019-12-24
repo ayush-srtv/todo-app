@@ -1,4 +1,5 @@
 import React from "react";
+import Typography from "@material-ui/core/Typography";
 import InputBox from "../../components/input-box";
 
 function Header(props) {
@@ -9,7 +10,9 @@ function Header(props) {
 
   return (
     <header>
-      <h1>todos</h1>
+      <Typography variant="h4" component="h4">
+        todos
+      </Typography>
       <InputBox
         {...{ value: text, onChange, onKeyPress: handleKeyPress, placeholder }}
       />

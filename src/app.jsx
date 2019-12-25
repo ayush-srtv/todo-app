@@ -2,10 +2,21 @@ import React, { useState } from "react";
 import Header from "./views/header";
 import Items from "./views/items";
 import { validate } from "./utils/validations";
+import storage from "./utils/storage";
 
 function App() {
   const [list, setList] = useState([]);
   const [text, setText] = useState("");
+
+  // useEffect(() => {
+  //   async function get() {
+  //     const lst = (await storage.get("list")) || [];
+  //     console.log(lst);
+  //     setList(lst);
+  //   }
+  //   get();
+  //   return () => {};
+  // });
 
   const itemProps = {
     list,
@@ -19,8 +30,10 @@ function App() {
       if (!validate(list, text)) {
         return;
       }
-      setList([...list, { item: text, done: false }]);
+      const newLst = [...list, { item: text, done: false }];
+      setList(newLst);
       setText("");
+      storage.set("list", newLst || []);
     }
   };
 

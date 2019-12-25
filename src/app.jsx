@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./views/header";
 import Items from "./views/items";
 import { validate } from "./utils/validations";
@@ -8,15 +8,16 @@ function App() {
   const [list, setList] = useState([]);
   const [text, setText] = useState("");
 
-  // useEffect(() => {
-  //   async function get() {
-  //     const lst = (await storage.get("list")) || [];
-  //     console.log(lst);
-  //     setList(lst);
-  //   }
-  //   get();
-  //   return () => {};
-  // });
+  useEffect(() => {
+    async function get() {
+      const lst = (await storage.get("list")) || [];
+      console.log(lst);
+      setList(lst);
+    }
+    get();
+    return () => {};
+  }, []);
+
 
   const itemProps = {
     list,

@@ -1,4 +1,5 @@
 import React from "react";
+import storage from "../../utils/storage";
 import List from "../../components/list";
 import ListItem from "../../components/list-item";
 
@@ -12,7 +13,11 @@ function Items({ list = [], setList }) {
       ...list[index],
       done: !list[index].done
     };
-    setList([...list]);
+    async function _update(lst) {
+      await storage.set("list", lst);
+      setList(lst);
+    }
+    _update([...list]);
   };
 
   return (

@@ -9,11 +9,11 @@ function App() {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    async function get() {
+    async function _get() {
       const lst = (await storage.get("list")) || [];
       setList(lst);
     }
-    get();
+    _get();
     return () => {};
   }, []);
 
@@ -30,9 +30,12 @@ function App() {
         return;
       }
       const newLst = [...list, { item: text, done: false }];
-      setList(newLst);
-      setText("");
-      storage.set("list", newLst || []);
+      async function _update(newLst) {
+        await storage.set("list", newLst || []);
+        setList(newLst);
+        setText("");
+      }
+      _update(newLst);
     }
   };
 

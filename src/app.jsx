@@ -11,13 +11,11 @@ function App() {
   useEffect(() => {
     async function get() {
       const lst = (await storage.get("list")) || [];
-      console.log(lst);
       setList(lst);
     }
     get();
     return () => {};
   }, []);
-
 
   const itemProps = {
     list,

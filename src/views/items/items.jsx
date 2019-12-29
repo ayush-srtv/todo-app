@@ -2,6 +2,7 @@ import React from "react";
 import storage from "../../utils/storage";
 import List from "../../components/list";
 import ListItem from "../../components/list-item";
+import "./items.css";
 
 function Items({ list = [], setList }) {
   const handleDelete = item => e =>
@@ -21,7 +22,7 @@ function Items({ list = [], setList }) {
   };
 
   return (
-    <List>
+    <List paperClassName="paper">
       {list.map((li, index) => (
         <ListItem
           key={index}

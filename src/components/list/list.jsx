@@ -12,11 +12,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function List({ children }) {
+function List({ children, paperClassName = "" }) {
   const classes = useStyles();
 
   return (
-    <Paper elevation={3}>
+    <Paper elevation={3} className={paperClassName}>
       <MUIList className={classes.root}>
         {children.length === 0 ? <Typography>NO ITEMS</Typography> : children}
       </MUIList>

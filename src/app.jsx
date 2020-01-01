@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { ThemeProvider } from "@material-ui/styles";
 import Header from "./views/header";
 import Items from "./views/items";
 import { validate } from "./utils/validations";
 import storage from "./utils/storage";
+import theme from "./theme";
 
 function App() {
   const [list, setList] = useState([]);
@@ -40,10 +42,12 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header {...headerProps} />
-      <Items {...itemProps} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Header {...headerProps} />
+        <Items {...itemProps} />
+      </div>
+    </ThemeProvider>
   );
 }
 

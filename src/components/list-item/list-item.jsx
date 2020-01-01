@@ -24,7 +24,7 @@ function ListItem({ item, done, onDelete, onDone, ...props }) {
       <ListItemText primary={li} />
       <ListItemSecondaryAction>
         <IconButton onClick={onDelete} edge="end" aria-label="delete">
-          <DeleteIcon />
+          <DeleteIcon color="error" />
         </IconButton>
       </ListItemSecondaryAction>
     </MUIListItem>

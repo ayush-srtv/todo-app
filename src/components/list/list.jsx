@@ -20,10 +20,10 @@ function List({ children, paperClassName = "" }) {
     <Paper elevation={3} className={paperClassName}>
       <MUIList className={classes.root}>
         {children.length === 0 ? (
-          <Typography>
+          <>
             <ListAlt />
-            No Items
-          </Typography>
+            <Typography>No Items</Typography>
+          </>
         ) : (
           children
         )}

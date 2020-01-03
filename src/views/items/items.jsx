@@ -5,8 +5,11 @@ import ListItem from "../../components/list-item";
 import "./items.css";
 
 function Items({ list = [], setList }) {
-  const handleDelete = item => e =>
-    setList(list.filter(li => li.item !== item));
+  const handleDelete = item => e => {
+    let newList = list.filter(li => li.item !== item);
+    setList(newList);
+    storage.set("list", list);
+  };
 
   const handleDone = item => e => {
     const index = list.findIndex(li => li.item === item);

@@ -8,7 +8,7 @@ function Items({ list = [], setList }) {
   const handleDelete = item => e => {
     let newList = list.filter(li => li.item !== item);
     setList(newList);
-    storage.set("list", list);
+    storage.set("list", newList);
   };
 
   const handleDone = item => e => {

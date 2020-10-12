@@ -1,0 +1,1 @@
+{"version":3,"sources":["items.css","styles.css"],"names":[],"mappings":"AAAA,OACE,WACF,CCFA,KACE,sBAAuB,CACvB,iBACF,CACA,KACE,kBACF","file":"main.1d6dc814.chunk.css","sourcesContent":[".paper {\r\n  margin: 50px;\r\n}\r\n",".App {\r\n  font-family: sans-serif;\r\n  text-align: center;\r\n}\r\nbody {\r\n  background: #e9ebee;\r\n}"]}
